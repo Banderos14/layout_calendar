@@ -2,7 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: $gap;
-  width: calc($calendar-width);
+  width: $calendar-width;
   padding: $calendar-padding;
   margin: 0;
 
