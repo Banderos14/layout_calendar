@@ -1,18 +1,18 @@
 .calendar {
   display: flex;
   flex-wrap: wrap;
-  gap: 1px;
-  width: calc(7 * 100px + 26px);
-  padding: 10px;
+  gap: $gap;
+  width: calc($calendar-width);
+  padding: $calendar-padding;
   margin: 0;
 
   &__day {
-    width: 100px;
-    height: 100px;
-    border: 1px solid $color-border;
+    width: $day-size;
+    height: $day-size;
+    border: $border-width solid $color-border;
     background-color: $color-blocks;
     position: relative;
-    transition: all;
+    transition: all 0.5s;
 
     &::before {
       content: '';
@@ -21,13 +21,12 @@
       left: 50%;
       transform: translate(-50%, -50%);
       font-family: Arial, sans-serif;
-      font-size: 30px;
+      font-size: $day-font-size;
     }
 
     &:hover {
       background-color: $color-hover;
       transform: translateY(-20px);
-      transition-duration: 0.5s;
       cursor: pointer;
     }
   }
@@ -43,7 +42,7 @@
   @each $name, $shift in $days {
     &--start-day-#{$name} {
       .calendar__day:first-child {
-        margin-left: #{$shift * 101px - 101px};
+        margin-left: ($shift - 1) * ($day-size + $gap);
       }
     }
   }
